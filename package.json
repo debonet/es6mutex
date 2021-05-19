@@ -1,0 +1,26 @@
+{
+  "name": "simple-mutex",
+  "version": "1.0.0",
+  "description": "Simple, clean, Promise-based Mutex library and class",
+  "main": "src/simple-mutex.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/debonet/simple-mutex.git"
+  },
+  "keywords": [
+    "Mutex",
+    "Promises",
+    "simple",
+    "clean",
+    "dependency-free"
+  ],
+  "author": "Jeremy De Bonet",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/debonet/simple-mutex/issues"
+  },
+  "homepage": "https://github.com/debonet/simple-mutex#readme"
+}
