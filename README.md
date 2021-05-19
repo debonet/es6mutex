@@ -5,7 +5,7 @@ Simple, dependency-free Mutex tools for ES6.
 ## INSTALLATION
 
 ```
-npm install es6mutex
+npm install @debonet/es6mutex
 ```
 
 ### OVERVIEW
