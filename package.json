@@ -1,14 +1,14 @@
 {
-  "name": "simple-mutex",
+  "name": "es6mutex",
   "version": "1.0.0",
   "description": "Simple, clean, Promise-based Mutex library and class",
-  "main": "src/simple-mutex.js",
+  "main": "src/es6mutex.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/debonet/simple-mutex.git"
+    "url": "git+https://github.com/debonet/es6mutex.git"
   },
   "keywords": [
     "Mutex",
@@ -20,7 +20,7 @@
   "author": "Jeremy De Bonet",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/debonet/simple-mutex/issues"
+    "url": "https://github.com/debonet/es6mutex/issues"
   },
-  "homepage": "https://github.com/debonet/simple-mutex#readme"
+  "homepage": "https://github.com/debonet/es6mutex#readme"
 }

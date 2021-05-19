@@ -1,23 +1,23 @@
-# simple-mutex.js
+# es6mutex.js
 
-Simple, dependency free Mutex tools for ES6.
+Simple, dependency-free Mutex tools for ES6.
 
 ## INSTALLATION
 
 ```
-npm install simple-mutex
+npm install es6mutex
 ```
 
 ### OVERVIEW
 
-Simple-mutex can be used as either a class or a library:
+es6mutex can be used as either a class or a library:
 
 
 ## USAGE AS A CLASS TO LOCK AGAINST A DEDICATED OBJECT
 
 ```javascript
 
-const Mutex = require( "simple-mutex" );
+const Mutex = require( "es6mutex" );
 
 const mutex = new Mutex();
 
@@ -41,7 +41,7 @@ f();
 
 ```javascript
 
-const Mutex = require( "simple-mutex" );
+const Mutex = require( "es6mutex" );
 
 async function sendAndReceive( serialport ) {
 	await Mutex.lock( serialport );
@@ -62,7 +62,7 @@ sendAndReceive( serialport )
 
 ```javascript
 
-const Mutex = require( "simple-mutex" );
+const Mutex = require( "es6mutex" );
 
 async function f( s ) {
 	await wait(1000);
@@ -79,7 +79,7 @@ Mutex.runExclusively( f, "World! );
 
 ```javascript
 
-const Mutex = require( "simple-mutex" );
+const Mutex = require( "es6mutex" );
 
 async function f( s ) {
 	await wait(1000);
