@@ -35,8 +35,9 @@ module.exports = class Mutex {
 	// runExclusively / criticalSection / run
 	async fpRunExclusively( fp, ...vx ){
 		await this.fpGet();
-		await fp( ...vx );
+		const x = await fp( ...vx );
 		this.fRelease();
+		return x;
 	}
 	criticalSection = this.fpRunExclusively;
 	runExclusively = this.fpRunExclusively;
@@ -82,11 +83,7 @@ module.exports = class Mutex {
 	// convert a normal fuction into a one-at-a-time function
 	// that can only be run exclusively
 	static ffpMakeExclusive( fpOrig ) {
-		const mutex = new Mutex();
-		
-		return function fpNew( ...vx ){
-			mutex.fpRunExclusively( fpOrig, ...vx );
-		};
+		return Mutex.fpRunExclusively.bind( undefined, fpOrig );
 	}
 	
 	static makeExclusive = Mutex.ffpMakeExclusive;
