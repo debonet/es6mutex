@@ -1,6 +1,6 @@
 {
   "name": "@debonet/es6mutex",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Simple, clean, Promise-based Mutex library and class",
   "main": "src/es6mutex.js",
   "scripts": {
