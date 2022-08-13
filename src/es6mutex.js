@@ -1,4 +1,4 @@
-module.exports = class Mutex {
+class Mutex {
 	// ----------------------------------------------------
 	// private members
 	#fOk = ()=>{};
@@ -19,17 +19,12 @@ module.exports = class Mutex {
 
 		return pOut;
 	}
-	lock = this.fpGet;
-	get = this.fpGet;
 	
 	// ----------------------------------------------------
 	// release() / unlock()
 	fRelease() {
 		this.#fOk();
 	}
-	release = this.fRelease;
-	unlock = this.fRelease;
-	
 	
 	// ----------------------------------------------------
 	// runExclusively / criticalSection / run
@@ -39,10 +34,6 @@ module.exports = class Mutex {
 		this.fRelease();
 		return x;
 	}
-	criticalSection = this.fpRunExclusively;
-	runExclusively = this.fpRunExclusively;
-	run = this.fpRunExclusively;
-	
 
 	// ----------------------------------------------------
 	// Mutex.lock()
@@ -50,8 +41,6 @@ module.exports = class Mutex {
 		o.mutex ??= new Mutex();
 		return o.mutex.fpGet();
 	}
-	static get = Mutex.fpGet;
-	static lock = Mutex.fpGet;
 	
 	// ----------------------------------------------------
 	// Mutex.release()
@@ -59,7 +48,6 @@ module.exports = class Mutex {
 		o.mutex ??= new Mutex();
 		return o.mutex.fRelease();
 	}
-	static release = Mutex.fRelease;
 
 	// ----------------------------------------------------
 	// Mutex.cancel()
@@ -74,9 +62,6 @@ module.exports = class Mutex {
 		fp.mutex ??= new Mutex();
 		return fp.mutex.fpRunExclusively( fp, ...vx );
 	}
-	static run = Mutex.fpRunExclusively;
-	static criticalSection = Mutex.fpRunExclusively;
-	static runExclusively = Mutex.fpRunExclusively;
 
 	// ----------------------------------------------------
 	// Mutex.makeExclusive()
@@ -86,7 +71,25 @@ module.exports = class Mutex {
 		return Mutex.fpRunExclusively.bind( undefined, fpOrig );
 	}
 	
-	static makeExclusive = Mutex.ffpMakeExclusive;
-	
 }
 
+// aliases
+Mutex.prototype.lock = Mutex.prototype.fpGet;
+Mutex.prototype.get = Mutex.prototype.fpGet;
+
+Mutex.prototype.release = Mutex.prototype.fRelease;
+Mutex.prototype.unlock = Mutex.prototype.fRelease;
+
+Mutex.prototype.criticalSection = Mutex.prototype.fpRunExclusively;
+Mutex.prototype.runExclusively = Mutex.prototype.fpRunExclusively;
+Mutex.prototype.run = Mutex.prototype.fpRunExclusively;
+
+Mutex.get = Mutex.fpGet;
+Mutex.lock = Mutex.fpGet;
+Mutex.release = Mutex.fRelease;
+Mutex.run = Mutex.fpRunExclusively;
+Mutex.criticalSection = Mutex.fpRunExclusively;
+Mutex.runExclusively = Mutex.fpRunExclusively;
+Mutex.makeExclusive = Mutex.ffpMakeExclusive;
+
+module.exports = Mutex;
